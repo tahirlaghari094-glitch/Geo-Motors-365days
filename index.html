@@ -1,22 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta name="google-site-verification" content="HAfgKEbloB8d-XtS7bAvGo2iE2V-GKkfEUF3M-3uu6w" />
     <meta charset="UTF-8">
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=956f0084-de8e-48ff-a843-75a27f945d2f
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
-<meta name="hosting-provider" content="Netlify">
-<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=956f0084-de8e-48ff-a843-75a27f945d2f">
+    <meta name="hosting-provider" content="Netlify">
+    <meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=956f0084-de8e-48ff-a843-75a27f945d2f">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geo Motors - Premium Car Dealership</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Firebase Compatibility SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -281,6 +283,20 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
+        // Firebase Configuration & Initialization
+        const firebaseConfig = {
+          apiKey: "AIzaSyAUHX2QecQML9cGGl0EDCBj8P7qyOh5cLM",
+          authDomain: "geo-motors-365days-3938c.firebaseapp.com",
+          projectId: "geo-motors-365days-3938c",
+          storageBucket: "geo-motors-365days-3938c.firebasestorage.app",
+          messagingSenderId: "468398968574",
+          appId: "1:468398968574:web:19434d603c8043b98f9faf"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.database();
+
         const STORAGE_KEY = 'geomotors_cars_data_v5';
         const FAVORITES_KEY = 'geomotors_favs_v5';
         
